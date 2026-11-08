@@ -92,7 +92,7 @@ body {
 		</style>
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
-<style>body{-webkit-user-select:none;-moz-user-select:none;user-select:none;}</style><script>document.addEventListener('contextmenu',function(e){e.preventDefault();});(function(){/* keep the game running in a background tab (online host): a hidden tab never fires requestAnimationFrame, so a timer stands in */var raf=window.requestAnimationFrame.bind(window);window.requestAnimationFrame=function(cb){var done=false;var run=function(t){if(done)return;done=true;cb(typeof t==='number'?t:performance.now());};var id=raf(run);setTimeout(function(){run(performance.now());},document.hidden?16:250);return id;};})();</script>
+<style>body{-webkit-user-select:none;-moz-user-select:none;user-select:none;}</style><script>document.addEventListener('contextmenu',function(e){e.preventDefault();});(function(){/* keep the game running in a background tab (online host): a hidden tab never fires requestAnimationFrame, so a timer stands in */var raf=window.requestAnimationFrame.bind(window);window.requestAnimationFrame=function(cb){var done=false;var run=function(t){if(done)return;done=true;cb(typeof t==='number'?t:performance.now());};var id=raf(run);setTimeout(function(){run(performance.now());},document.hidden?16:250);return id;};})();(function(){var P=window.RTCPeerConnection;if(!P)return;window.__cgPCs=[];var W=function(c){var pc=new P(c);window.__cgPCs.push(pc);if(window.__cgPCs.length>8)window.__cgPCs.shift();return pc;};W.prototype=P.prototype;try{Object.setPrototypeOf(W,P);}catch(e){}window.RTCPeerConnection=W;window.__cgRoute=function(){var a=window.__cgPCs.filter(function(p){return p.connectionState==='connected';});var pc=a[a.length-1];if(!pc){window.__cgRouteInfo='';return;}pc.getStats().then(function(st){var pair=null;st.forEach(function(r){if(r.type==='transport'&&r.selectedCandidatePairId){pair=st.get(r.selectedCandidatePairId);}});if(!pair){st.forEach(function(r){if(r.type==='candidate-pair'&&r.nominated&&r.state==='succeeded'){pair=r;}});}if(!pair)return;var l=st.get(pair.localCandidateId)||{};var r=st.get(pair.remoteCandidateId)||{};window.__cgRouteInfo=JSON.stringify({l:l.candidateType||'',r:r.candidateType||'',rtt:pair.currentRoundTripTime||0,p:l.relayProtocol||l.protocol||''});});};})();</script>
 	</head>
 	<body>
 		<canvas id="canvas">
@@ -111,7 +111,7 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.wasm":38057390,"index-75a5e4f425.pck":4183264},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"mainPack":"index-75a5e4f425.pck"};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.wasm":38057390,"index-d6caaf2202.pck":4184112},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"mainPack":"index-d6caaf2202.pck"};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
