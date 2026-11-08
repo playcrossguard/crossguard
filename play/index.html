@@ -92,7 +92,7 @@ body {
 		</style>
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
-<style>body{-webkit-user-select:none;-moz-user-select:none;user-select:none;}</style><script>document.addEventListener('contextmenu',function(e){e.preventDefault();});</script>
+<style>body{-webkit-user-select:none;-moz-user-select:none;user-select:none;}</style><script>document.addEventListener('contextmenu',function(e){e.preventDefault();});(function(){/* keep the game running in a background tab (online host): a hidden tab never fires requestAnimationFrame, so a timer stands in */var raf=window.requestAnimationFrame.bind(window);window.requestAnimationFrame=function(cb){var done=false;var run=function(t){if(done)return;done=true;cb(typeof t==='number'?t:performance.now());};var id=raf(run);setTimeout(function(){run(performance.now());},document.hidden?16:250);return id;};})();</script>
 	</head>
 	<body>
 		<canvas id="canvas">
